@@ -13,6 +13,7 @@ namespace Snake
         float tiempo;
         int puntos;
         int nivel;
+        public Usuario() { }
         public Usuario(string userName,string contra) {
             this.userName = userName;
             this.contra = contra;

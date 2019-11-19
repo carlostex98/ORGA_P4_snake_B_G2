@@ -9,3 +9,6 @@ D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-De
 D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-Develop\ORGA_P4_snake_B_G2-Develop\Aplicacion\Snake\Snake\Snake\obj\Debug\Snake.csproj.CoreCompileInputs.cache
 D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-Develop\ORGA_P4_snake_B_G2-Develop\Aplicacion\Snake\Snake\Snake\obj\Debug\Snake.exe
 D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-Develop\ORGA_P4_snake_B_G2-Develop\Aplicacion\Snake\Snake\Snake\obj\Debug\Snake.pdb
+D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-Develop\ORGA_P4_snake_B_G2-Develop\Aplicacion\Snake\Snake\Snake\obj\Debug\Snake.Informacion.resources
+D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-Develop\ORGA_P4_snake_B_G2-Develop\Aplicacion\Snake\Snake\Snake\obj\Debug\Snake.Administrador.resources
+D:\Segundo Semestre 2019\Orga\Lab\Practicas\Practica 4\App\ORGA_P4_snake_B_G2-Develop\ORGA_P4_snake_B_G2-Develop\Aplicacion\Snake\Snake\Snake\obj\Debug\Snake.VerUsuario.resources

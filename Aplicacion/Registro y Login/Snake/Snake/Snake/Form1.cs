@@ -37,8 +37,9 @@ namespace Snake
             else {
                 if (Manejador.getInstancia().login(txtUser.Text, txtContra.Text))
                 {
-                    MessageBox.Show("Bienvenido " + txtUser.Text);
-                    Manejador.getInstancia().setUsuario(Manejador.getInstancia().buscarUsuario(txtUser.Text));
+                    Usuario user = Manejador.getInstancia().buscarUsuario(txtUser.Text);
+                    MessageBox.Show("Bienvenido " + user.getUserName());
+                    Manejador.getInstancia().setUsuario(user);
                     Informacion informacion = new Informacion();
                     this.Hide();
                     limpiar();
@@ -58,6 +59,11 @@ namespace Snake
                     MessageBox.Show("Datos Erroneos");
                 }
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

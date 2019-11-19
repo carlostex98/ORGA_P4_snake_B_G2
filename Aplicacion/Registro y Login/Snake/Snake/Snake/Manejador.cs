@@ -15,12 +15,13 @@ namespace Snake
             if (instancia==null)
             {
                 instancia = new Manejador();
+                
             }
             return instancia;
         }
         public Manejador() {
             usuarios = new List<Usuario>();
-            usuarioLogeado = null;
+            usuarioLogeado = new Usuario();
         }
         public Usuario getUsuario() { return usuarioLogeado; }
         public void setUsuario(Usuario usuarioLogeado) { this.usuarioLogeado = usuarioLogeado; }
@@ -31,7 +32,7 @@ namespace Snake
         public Usuario buscarUsuario(string userName) {
             foreach (var item in usuarios)
             {
-                if (item.getUserName().Equals(userName))
+                if (item.getUserName()==userName)
                 {
                     return item;
                 }

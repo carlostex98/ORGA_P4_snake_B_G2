@@ -45,5 +45,10 @@ namespace Snake
                 }
             }
         }
+
+        private void Registro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
