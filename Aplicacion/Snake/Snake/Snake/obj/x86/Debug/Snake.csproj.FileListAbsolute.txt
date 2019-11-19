@@ -9,3 +9,4 @@ A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.exe
 A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.pdb
 A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.csprojAssemblyReference.cache
 A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Registro.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Juego.resources

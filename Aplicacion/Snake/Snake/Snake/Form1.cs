@@ -26,13 +26,13 @@ namespace Snake
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Equals("Byron"))
+            if (textBox1.Text.Equals("B"))
             {
-                if (textBox2.Text.Equals("Admin123"))
+                if (textBox2.Text.Equals("3"))
                 {
-                    Tablero tab = new Tablero();
+                    Juego juego = new Juego();
                     this.Hide();
-                    tab.Show();
+                    juego.Show();
                 }
             }
             else
