@@ -16,5 +16,29 @@ namespace Snake
         {
             InitializeComponent();
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Registro reg = new Registro();
+            this.Hide();
+            reg.Show();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Equals("Byron"))
+            {
+                if (textBox2.Text.Equals("Admin123"))
+                {
+                    Tablero tab = new Tablero();
+                    this.Hide();
+                    tab.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No estan bien sus datos :v");
+            }
+        }
     }
 }
