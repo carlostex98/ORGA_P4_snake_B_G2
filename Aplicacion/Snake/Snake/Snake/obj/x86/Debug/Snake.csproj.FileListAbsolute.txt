@@ -1,0 +1,11 @@
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\bin\x86\Debug\Snake.exe.config
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\bin\x86\Debug\Snake.exe
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\bin\x86\Debug\Snake.pdb
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Form1.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Properties.Resources.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.csproj.GenerateResource.cache
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.csproj.CoreCompileInputs.cache
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.exe
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.pdb
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.csprojAssemblyReference.cache
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Registro.resources
