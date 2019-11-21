@@ -11,7 +11,7 @@ namespace Snake
        protected int x, y, ancho;
         public objeto()
         {
-            ancho = 10;
+            ancho = 25;
         }
         public Boolean interseccion(objeto o)
         {

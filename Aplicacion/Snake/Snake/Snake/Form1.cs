@@ -15,6 +15,7 @@ namespace Snake
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -23,22 +24,48 @@ namespace Snake
             this.Hide();
             reg.Show();
         }
-
+        public void limpiar() {
+            txtUser.Text = "";
+            txtContra.Text = "";
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Equals("B"))
+            if (txtUser.Text==""||txtContra.Text=="")
             {
-                if (textBox2.Text.Equals("3"))
+                MessageBox.Show("Hay campos vacios");
+                limpiar();
+            }
+            else {
+                if (Manejador.getInstancia().login(txtUser.Text, txtContra.Text))
                 {
-                    Juego juego = new Juego();
+                    Usuario user = Manejador.getInstancia().buscarUsuario(txtUser.Text);
+                    MessageBox.Show("Bienvenido " + user.getUserName());
+                    Manejador.getInstancia().setUsuario(user);
+                    Informacion informacion = new Informacion();
+                    //Juego informacion = new Juego();
                     this.Hide();
-                    juego.Show();
+                    limpiar();
+                    informacion.Show();
+                }
+                else if (txtUser.Text == "Admin_ORGA" && txtContra.Text == "12345")
+                {
+                    MessageBox.Show("Bienvenido Admin_ORGA");
+                    Administrador administrador = new Administrador();
+                    limpiar();
+                    administrador.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    limpiar();
+                    MessageBox.Show("Datos Erroneos");
                 }
             }
-            else
-            {
-                MessageBox.Show("No estan bien sus datos :v");
-            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

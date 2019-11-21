@@ -22,7 +22,7 @@ namespace Snake
             {
                 siguiente.dibujar(g); 
             }
-            g.FillRectangle(new SolidBrush(Color.Pink), this.x, this.y, this.ancho, this.ancho);
+            g.FillRectangle(new SolidBrush(Color.Chartreuse), this.x, this.y, this.ancho, this.ancho);
 
         }
         public void setXY(int x, int y)
@@ -38,7 +38,6 @@ namespace Snake
             if (siguiente==null)
             {
                 siguiente = new Cola(this.x,this.y);
-
             }
             else
             {

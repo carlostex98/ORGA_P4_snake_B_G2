@@ -10,3 +10,9 @@ A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.pdb
 A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.csprojAssemblyReference.cache
 A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Registro.resources
 A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Juego.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Administrador.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.VerUsuario.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.TopPuntos.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.TopTiempo.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Eliminar.resources
+A:\PROGRAMACION\Orga\Snake\Snake\Snake\obj\x86\Debug\Snake.Informacion.resources
