@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Snake
 {
     public partial class Informacion : Form
     {
+        PuertoParalelo puertito = new PuertoParalelo();
         public Informacion()
         {
             InitializeComponent();
@@ -23,9 +25,12 @@ namespace Snake
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            Juego.sigueJugando = true;
             Juego juego = new Juego();
             juego.Show();
             this.Hide();
+           
+             
         }
 
         private void Button5_Click(object sender, EventArgs e)

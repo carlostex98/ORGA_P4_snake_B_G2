@@ -62,7 +62,7 @@
             // bucle
             // 
             this.bucle.Enabled = true;
-            this.bucle.Interval = 500;
+            this.bucle.Interval = 200;
             this.bucle.Tick += new System.EventHandler(this.Bucle_Tick);
             // 
             // label2
@@ -86,7 +86,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // Jugador

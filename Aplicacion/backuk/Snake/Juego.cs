@@ -14,6 +14,7 @@ namespace Snake
 {
     public partial class Juego : Form
     {
+        public static Boolean sigueJugando = false;
         Graphics g;
         int xdir = 0;
         int ydir = 0;
@@ -69,7 +70,8 @@ namespace Snake
             g.Clear(Color.White);
             cabeza.dibujar(g);
             comida.dibujar(g);
-            Console.WriteLine(comida.getX()+",,,,,"+comida.getY());
+            mandarDatos();
+           // Console.WriteLine(comida.getX()+",,,,,"+comida.getY());
             movimiento();
             
             choquecuerpo();
@@ -82,43 +84,6 @@ namespace Snake
                 puntaje += 10;
                 puntos.Text = puntaje.ToString();
             }
-            String prueba = "";
-            try
-            {
-                for (int i = 0; i < 12; i++)
-                {
-                    for (int j = 0; j < 12; j++)
-                    {
-                        int datoX = matriz[i, j].getX();
-                        int datoY = matriz[i, j].getY();
-                        if (datoX == cabeza.verX() && datoY == cabeza.verY())
-                        {
-                            puertito.activaD0();
-                            prueba = prueba + " 1 ";
-                        }
-                        else if (datoX == cabeza.verSiguiente().verX() && datoY == cabeza.verSiguiente().verY())
-                        {
-                            prueba = prueba + " 1 ";
-                        }
-                        else if (datoX == comida.getX() && datoY == comida.getY())
-                        {
-                            puertito.activaD0();
-                            prueba = prueba + " 1 ";
-                        }
-                        else
-                        {
-                            puertito.desactivaD0();
-                            prueba = prueba + " 0 ";
-                        }
-                    }
-                    prueba = prueba + "\n";
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            Console.WriteLine(prueba);
         }
         public void choquePared() {
             if (cabeza.verX()<0 || cabeza.verX()>=300 || cabeza.verY()<0 || cabeza.verY()>=300) {
@@ -128,6 +93,7 @@ namespace Snake
         }
         public void findejuego()
         {
+            Juego.sigueJugando = false;
             Manejador.getInstancia().getUsuario().setPuntos(puntaje);
             Manejador.getInstancia().getUsuario().setTiempo(tiempo);
             puntaje = 0;
@@ -190,10 +156,55 @@ namespace Snake
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
+            mandarDatos();
             tiempo++;
             label3.Text = tiempo.ToString();
+           
         }
+        private void mandarDatos()
+        {
+            String prueba = "";
+            puertito.clock(1);
+            try
+            {
+                for (int i = 0; i < 12; i++)
+                {
+                    for (int j = 0; j < 12; j++)
+                    {
+                        int datoX = matriz[j, i].getX();
+                        int datoY = matriz[j, i].getY();
+                        if (datoX == cabeza.verX() && datoY == cabeza.verY())
+                        {
+                            puertito.clock(1);
+                            puertito.activaD0();
+                            puertito.clock(0);
+                            prueba = prueba + " 1 ";
+                        }
+                        else if (datoX == cabeza.verSiguiente().verX() && datoY == cabeza.verSiguiente().verY())
+                        {
+                            prueba = prueba + " 1 ";
+                        }
+                        else if (datoX == comida.getX() && datoY == comida.getY())
+                        {
+                            puertito.activaD0();
+                            prueba = prueba + " 1 ";
+                        }
+                        else
+                        {
+                            puertito.desactivaD0();
+                            prueba = prueba + " 0 ";
+                        }
+                    }
+                    prueba = prueba + "\n";
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+            puertito.clock(0);
+            Console.WriteLine(prueba);
+        }
         private void Juego_KeyDown(object sender, KeyEventArgs e)
         {
 
