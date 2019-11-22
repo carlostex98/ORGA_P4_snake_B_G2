@@ -23,6 +23,7 @@ namespace Snake
         Cola cabeza;
         Comida comida;
         int puntaje;
+        Obstaculo obstaculos;
         float tiempo;
         int arriba = 0;
         int abajo = 0;
@@ -30,10 +31,13 @@ namespace Snake
         PuertoParalelo puertito = new PuertoParalelo();
         int izquierda = 0;
         matrizDatos[,] matriz = new matrizDatos[12, 12];
+        bool ganar;
+        int nivel;
         public Juego()
         {
             InitializeComponent();
             cabeza = new Cola(25, 25);
+            obstaculos = new Obstaculo();
             Jugador.Text = Manejador.getInstancia().getUsuario().getUserName();
             comida = new Comida();
             puntaje = Manejador.getInstancia().getUsuario().getPuntos();
@@ -53,6 +57,8 @@ namespace Snake
                     Console.WriteLine(datoX+" "+datoY);
                 }
             }
+            nivel = Manejador.getInstancia().getUsuario().getNivel();
+            ganar = false;
         }
         public void masTiempo() {
             //Thread.Sleep(1000);
@@ -65,50 +71,220 @@ namespace Snake
             cabeza.setXY(cabeza.verX() + xdir, cabeza.verY() + ydir);
            // masTiempo();
         }
+        private void validarObstaculos()
+        {
+            if (puntaje < 100)
+            {
+                obstaculos.dibujar(g);
+            }
+            else if (puntaje >= 100 && puntaje < 200)
+            {
+                obstaculos.dibujar1(g);
+            }
+            else if (puntaje >= 200 && puntaje < 300)
+            {
+                obstaculos.dibujar2(g);
+            }      
+        }
         private void Bucle_Tick(object sender, EventArgs e)
         {
+            //setVelocidad();
             g.Clear(Color.White);
             cabeza.dibujar(g);
             comida.dibujar(g);
-            mandarDatos();
-           // Console.WriteLine(comida.getX()+",,,,,"+comida.getY());
-            movimiento();
-            
-            choquecuerpo();
+            validarObstaculos();
+
             choquePared();
+            // mandarDatos();
+            // Console.WriteLine(comida.getX()+",,,,,"+comida.getY());
             if (cabeza.interseccion(comida))
             {
 
-                comida.colocar();
+                verificarComida();
                 cabeza.meter();
                 puntaje += 10;
+                aumentarNivel();
                 puntos.Text = puntaje.ToString();
             }
+            movimiento();
+            choquecuerpo(); 
         }
+        public void setVelocidad() {
+            if (nivel == 1)
+            {
+                bucle.Interval = 500;
+            } else if (nivel == 2) { bucle.Interval = 300; } else if (nivel ==3) { bucle.Interval = 100; }
+        }
+        public void verificarComida()
+        {
+            comida.colocar();
+            if (comida.getX() == verificarX && comida.getY() == verificarY)
+            {
+                comida.colocar();
+                verificarComida();
+            }
+        }
+        private void aumentarNivel()
+        {
+           if (puntaje >= 100 && puntaje < 200)
+            {
+                //MessageBox.Show("Has superado el nivel 1 de Drome Tex");
+                bucle.Interval = 300;
+                Manejador.getInstancia().getUsuario().setNivel(2);
+                label6.Text= Manejador.getInstancia().getUsuario().getNivel().ToString();
+            }
+            else if(puntaje >= 200 && puntaje < 300)
+            {
+                //MessageBox.Show("Has superado el nivel 1 de Drome Tex");
+                bucle.Interval = 100;
+                Manejador.getInstancia().getUsuario().setNivel(3);
+                label6.Text = Manejador.getInstancia().getUsuario().getNivel().ToString();
+            }
+            else if (puntaje == 300)
+            {
+                ganarnivel();
+            }
+        }
+        public void ganarnivel() {
+            ganar = true;
+            MessageBox.Show("Usted a ganado SIIIUUUUU , drome tex se despide");
+            Manejador.getInstancia().getUsuario().setNivel(1);
+            Manejador.getInstancia().getUsuario().setPuntos(0);
+            Manejador.getInstancia().getUsuario().setTiempo(0);
+            Form1 log = new Form1();
+            log.Show();
+            this.Hide();
+        }
+        int verificarX;
+        int verificarY;
+
         public void choquePared() {
             if (cabeza.verX()<0 || cabeza.verX()>=300 || cabeza.verY()<0 || cabeza.verY()>=300) {
+                Console.WriteLine(obstaculos.getX());
+                Console.WriteLine(obstaculos.getX());
                 findejuego();
             }
-
+            if (puntaje < 100)
+            {
+                if (cabeza.verX()==50 && cabeza.verY()==100)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX()==175 && cabeza.verY()==100)
+                {
+                    findejuego();
+                }
+                verificarX = cabeza.verX();
+                verificarY = cabeza.verY();
+            }
+            else if (puntaje >= 100 && puntaje < 200)
+            {
+                if (cabeza.verX() == 0 && cabeza.verY() == 0)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 0 && cabeza.verY() == 25)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 0 && cabeza.verY() == 50)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 0 && cabeza.verY() == 75)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 0 && cabeza.verY() == 100)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 0 && cabeza.verY() == 125)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 275 && cabeza.verY() == 150)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 275 && cabeza.verY() == 175)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 275 && cabeza.verY() == 200)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 275 && cabeza.verY() == 225)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 275 && cabeza.verY() == 250)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 275 && cabeza.verY() == 275)
+                {
+                    findejuego();
+                }
+                verificarX = cabeza.verX();
+                verificarY = cabeza.verY();
+            }
+            else if (puntaje >= 200 && puntaje < 300)
+            {
+                 if (cabeza.verX() == 125 && cabeza.verY() == 50)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 125 && cabeza.verY() == 75)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 125 && cabeza.verY() == 100)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 125 && cabeza.verY() == 125)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 125 && cabeza.verY() == 150)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 125 && cabeza.verY() == 175)
+                {
+                    findejuego();
+                }
+                else if (cabeza.verX() == 125 && cabeza.verY() == 200)
+                {
+                    findejuego();
+                }
+                verificarX = cabeza.verX();
+                verificarY = cabeza.verY();
+            }
         }
         public void findejuego()
         {
-            Juego.sigueJugando = false;
-            Manejador.getInstancia().getUsuario().setPuntos(puntaje);
-            Manejador.getInstancia().getUsuario().setTiempo(tiempo);
-            puntaje = 0;
-            tiempo = 0;
-            puntos.Text = "0";
-            ejex = true;
-            ejey = true;
-            xdir = 0;
-            ydir = 0;
-            cabeza = new Cola(10,10);
-            comida = new Comida();
-            MessageBox.Show("Perdiste, te saluda tu amigo DromeTex");
-            Informacion info = new Informacion();
-            info.Show();
-            this.Hide();
+            if (!ganar)
+            {
+                Juego.sigueJugando = false;
+                Manejador.getInstancia().getUsuario().setPuntos(puntaje);
+                Manejador.getInstancia().getUsuario().setTiempo(tiempo);
+                puntaje = 0;
+                tiempo = 0;
+                puntos.Text = "0";
+                ejex = true;
+                ejey = true;
+                xdir = 0;
+                ydir = 0;
+                cabeza = new Cola(10, 10);
+                comida = new Comida();
+                MessageBox.Show("Perdiste, te saluda tu amigo DromeTex");
+                Informacion info = new Informacion();
+                info.Show();
+                this.Hide();
+            }
 
         }
         public void choquecuerpo() {
@@ -151,14 +327,14 @@ namespace Snake
             abajo = 0;
             izquierda = 0;
             derecha = 1;
+            setVelocidad();
+            label6.Text = Manejador.getInstancia().getUsuario().getNivel().ToString();
             Console.WriteLine(arriba + " " + abajo + " " + izquierda + " " + derecha);
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
             mandarDatos();
-            tiempo++;
-            label3.Text = tiempo.ToString();
            
         }
         private void mandarDatos()
@@ -205,6 +381,23 @@ namespace Snake
             puertito.clock(0);
             Console.WriteLine(prueba);
         }
+
+        private void Puntos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            tiempo++;
+            label3.Text = tiempo.ToString();
+        }
+
         private void Juego_KeyDown(object sender, KeyEventArgs e)
         {
 

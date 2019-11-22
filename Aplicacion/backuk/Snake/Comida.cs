@@ -9,7 +9,7 @@ namespace Snake
 {
     class Comida : objeto
     {
-        int lechuga=12;
+        int lechuga=11;
         public Comida()
         {
             //dimensiones de la pantalla/10 en las que se genera la comida
@@ -23,10 +23,9 @@ namespace Snake
         public int generar(int n)
         {
             Random random = new Random();
-            int num = (int)random.Next(0, n)*25;
+            int num = (int)random.Next(1, n)*25;
             return num;
         }
-       
         public void colocar()
         {
             this.x = generar(lechuga);

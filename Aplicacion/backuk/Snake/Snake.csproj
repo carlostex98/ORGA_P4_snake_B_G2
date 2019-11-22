@@ -101,7 +101,9 @@
     </Compile>
     <Compile Include="Manejador.cs" />
     <Compile Include="matrizDatos.cs" />
+    <Compile Include="Nivel.cs" />
     <Compile Include="objeto.cs" />
+    <Compile Include="Obstaculo.cs" />
     <Compile Include="Pared.cs" />
     <Compile Include="PortAccess.cs" />
     <Compile Include="Program.cs" />

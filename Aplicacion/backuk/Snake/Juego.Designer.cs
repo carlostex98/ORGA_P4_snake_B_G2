@@ -38,13 +38,16 @@
             this.Jugador = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.canvas = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 17);
+            this.label1.Location = new System.Drawing.Point(5, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 1;
@@ -53,22 +56,23 @@
             // puntos
             // 
             this.puntos.AutoSize = true;
-            this.puntos.Location = new System.Drawing.Point(61, 17);
+            this.puntos.Location = new System.Drawing.Point(44, 9);
             this.puntos.Name = "puntos";
             this.puntos.Size = new System.Drawing.Size(13, 13);
             this.puntos.TabIndex = 2;
             this.puntos.Text = "0";
+            this.puntos.Click += new System.EventHandler(this.Puntos_Click);
             // 
             // bucle
             // 
             this.bucle.Enabled = true;
-            this.bucle.Interval = 200;
+            this.bucle.Interval = 500;
             this.bucle.Tick += new System.EventHandler(this.Bucle_Tick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(99, 17);
+            this.label2.Location = new System.Drawing.Point(63, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 3;
@@ -77,7 +81,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(162, 17);
+            this.label3.Location = new System.Drawing.Point(111, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 13);
             this.label3.TabIndex = 4;
@@ -92,7 +96,7 @@
             // Jugador
             // 
             this.Jugador.AutoSize = true;
-            this.Jugador.Location = new System.Drawing.Point(244, 17);
+            this.Jugador.Location = new System.Drawing.Point(181, 9);
             this.Jugador.Name = "Jugador";
             this.Jugador.Size = new System.Drawing.Size(48, 13);
             this.Jugador.TabIndex = 5;
@@ -101,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(193, 17);
+            this.label4.Location = new System.Drawing.Point(130, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 6;
@@ -115,11 +119,38 @@
             this.canvas.TabIndex = 0;
             this.canvas.TabStop = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(235, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Nivel";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(272, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "1";
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            // 
             // Juego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 357);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Jugador);
             this.Controls.Add(this.label3);
@@ -148,5 +179,8 @@
         private System.Windows.Forms.Label Jugador;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox canvas;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timer2;
     }
 }
